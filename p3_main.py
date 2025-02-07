@@ -30,8 +30,8 @@ print("Welcome to treasure island!")
 print("Your sole mission is to find the treasure.")
 
 # Input first prompt - crossroad
-print("You are at a crossroad. Where would you like to go?")
-direction = input('\t Type "left" or "right"\n')
+print("You\'re at a crossroad. Where would you like to go?")
+direction = input('\t Type "left" or "right"\n').lower()  # Enable using capital letters in input as well
 
 # Store the status of the player
 alive = True
@@ -50,7 +50,7 @@ else:
 # If the player survived the crossroad, the next prompt is output - swim in the lake
 if alive:
     print("You have come across a lake. There is an island in the middle of the lake. Will you swim to it?")
-    swim_or_not = input('\t Type "swim" or "wait"\n')
+    swim_or_not = input('\t Type "swim" or "wait"\n').lower()  # Enable using capital letters in input as well
 
     # If the player survived the crossroad, you have to make a decision to swim to the island or not,
     # based on which the story will progress
@@ -68,7 +68,7 @@ if alive:
 if alive:
     print("On the platform you see three doors. One is blue, one is red, the last one is yellow.\n"
           "Which one will you enter? Or will you run away?")
-    door = input('\t Type "red", "blue" or "yellow". Type "none" to get away.\n')
+    door = input('\t Type "red", "blue" or "yellow". Type "none" to get away.\n').lower()  # Enable using capital letters in input as well
 
     # If the player survived the crossroad, you have to make a decision which door the player will enter
     if door == "red":
