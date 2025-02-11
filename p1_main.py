@@ -1,4 +1,4 @@
-# Project #1
+# Project #1 - Band Generator
 
 # Initial greeting
 print("Welcome to the Band Name Generator!")

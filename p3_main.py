@@ -1,4 +1,4 @@
-# Project #3
+# Project #3 - Treasure Hunt
 
 # Print the chosen ASCII Art
 

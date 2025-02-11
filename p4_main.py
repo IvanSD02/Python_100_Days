@@ -1,4 +1,4 @@
-# Project #4
+# Project #4 - Rock, Paper, Scissors
 
 # Imports
 import random
