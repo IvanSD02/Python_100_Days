@@ -43,6 +43,7 @@ while "_" in display_word:
     if not len(guessed_letter) == 1:
         print("Please insert a valid letter!")
         is_valid = False
+        continue
 
     # Output if the guess was correct or not
     matched_word = ""
@@ -78,10 +79,11 @@ while "_" in display_word:
     # Display the results
     display_word = matched_word
     print(display_word)
+
     print(stages[current_stage_index])
 
 # Print the corresponding message based on whether the player has won
-if not game_over:
+if not game_over and "_" not in display_word:
     print(f'Good job, you won! The word was: "{chosen_word}"')
     print(logo2)
 else:
