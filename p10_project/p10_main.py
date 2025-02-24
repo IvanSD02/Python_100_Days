@@ -17,6 +17,12 @@ cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "K", "Q", "J"]
 
 # Function definitions
 def convert_named_cards_to_points(deck, named_deck):
+    """
+    Converts the deck with cards into a deck with points behind each card.
+    :param deck: The full deck of cards.
+    :param named_deck: The dictionary, which holds the named cards.
+    :return: A new deck, which contains only the scores behind each card
+    """
     new_deck = []
     for card in deck:
         if not type(card) == int:
@@ -27,6 +33,11 @@ def convert_named_cards_to_points(deck, named_deck):
 
 
 def decide_value_of_ace(deck):
+    """
+    Overwrites the ace card, if needed.
+    :param deck: A deck of the scores of the cards.
+    :return: A new deck with an overridden ace.
+    """
     if "A" in deck and sum(deck) > 21:
         deck.remove(11)
         deck.append(1)
@@ -34,6 +45,12 @@ def decide_value_of_ace(deck):
 
 
 def blackjack_logic(deck, named_deck):
+    """
+    Provides the main logic for the blackjack game.
+    :param deck: The full deck of the scores of the cards.
+    :param named_deck: The dictionary, which holds the named cards.
+    :return: None
+    """
     # Save the decks for the player and the computer separately
     player_cards = []
     computer_cards = []
@@ -97,9 +114,11 @@ def blackjack_logic(deck, named_deck):
     else:
         if player_score == computer_score:
             print("It's a draw!")
-        elif player_score == 21:
+        elif player_score == 21 and len(player_cards) == 2:
+            # The user has a blackjack, if he has two cards - an Ace and a 10-point card
             print("You got Blackjack! You win :)")
-        elif computer_score == 21:
+        elif computer_score == 21 and len(computer_cards) == 2:
+            # The computer has a blackjack, if he has two cards - an Ace and a 10-point card
             print("The opponent got Blackjack! You lose :(")
         elif player_score > computer_score:
             print("You have the higher score, you win :)")
@@ -113,6 +132,10 @@ print("Hello, welcome to the Blackjack game!")
 
 # Create a function for a new blackjack game
 def blackjack():
+    """
+    Main logic.
+    :return: None
+    """
     # Define a flag to verify the player is still playing
     is_playing = True
 
