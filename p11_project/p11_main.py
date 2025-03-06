@@ -31,7 +31,20 @@ def choose_difficulty():
 
 
 def choose_number():
+    # Choose a number between the given range
     return random.randint(1, MAX_NUMBER)
+
+
+def check_answer(guess, chosen):
+    # Check where in the range the current answer of the user was
+    if guess > chosen:
+        print("Too high.")
+    elif guess < chosen:
+        print("Too low.")
+    else:
+        print(f"You guessed! The number was {chosen}")
+        return True
+    return False
 
 
 def play_game(attempts):
@@ -46,12 +59,8 @@ def play_game(attempts):
         guess = int(input("Make a guess. "))
 
         # Based on the guess decide to continue or not
-        if guess > chosen:
-            print("Too high.")
-        elif guess < chosen:
-            print("Too low.")
-        else:
-            print("You guessed!")
+        has_guessed = check_answer(guess, chosen)
+        if has_guessed:
             return True
 
         # If we have not guessed yet, print the remaining attempts
@@ -59,7 +68,7 @@ def play_game(attempts):
         print(f"You have {attempts} attempts remaining.")
 
     # If we have exited the loop and have not yet guessed, we have lost
-    print("You lost, too bad!")
+    print(f"You lost, too bad! The number was {chosen}")
     return False
 
 
