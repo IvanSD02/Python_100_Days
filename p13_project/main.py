@@ -61,6 +61,7 @@ def check_resources(coffee_type):
     :param coffee: type of coffee the user wants to get
     :return: True or False, based on if the ingredients are sufficient
     """
+    # TODO - This can be done with a for loop instead, and, if needed, we can return the ingredient which is insufficient
     if coffee_type == "espresso":
         return check_ingredient(coffee_type, "water") and check_ingredient(coffee_type, "coffee")
     return check_ingredient(coffee_type, "water") and check_ingredient(coffee_type, "milk") and check_ingredient(coffee_type,"coffee")
@@ -112,6 +113,7 @@ def coffee_logic(coffee_type):
         else:
             print(f"Sorry that's not enough money(${round(money_given, 2)}). You need ${coffee_cost}. Money refunded.\n")
     else:
+        # TODO - should print "Sorry there is not enough <resource>"
         print("Resources insufficient! Sorry for the inconvenience. Exiting...\n")
 
 
@@ -128,23 +130,23 @@ while more_customers:
     # Prompt the user to choose an item from the list
     print("Please choose a coffee from the list below: ")
     print_list_of_coffees()
-    chosen_coffee = input("What would you like to have? ").lower()
+    coffee_prompt = input("What would you like to have? ").lower()
 
     # Validate input
-    if chosen_coffee == "off":
+    if coffee_prompt == "off":
         # If the user wants to exit, turn off the machine
         more_customers = False
         break
-    elif chosen_coffee == "report":
+    elif coffee_prompt == "report":
         # If the user wants a report, generate a list of ingredients
         generate_report()
-    elif chosen_coffee not in coffee_types:
+    elif coffee_prompt not in coffee_types:
         print("Invalid input provided!")
         break
     else:
         # If the coffee chosen is within the supported ones, run the main logic
         print("Great choice!")
-        coffee_logic(chosen_coffee)
+        coffee_logic(coffee_prompt)
 
 
 # Output exit label
